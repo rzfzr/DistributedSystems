@@ -100,6 +100,8 @@ function commandHandler(command) {
 // {"host": "127.0.0.1", "port": 8080}
 
 
+var list = ["127.0.0.1", "172.16.3.75"]
+
 
 function socketCallback(socket) {
     socket.write("hello\n");

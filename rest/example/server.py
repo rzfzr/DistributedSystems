@@ -107,32 +107,15 @@ class Account(Resource):
         ACCOUNTS[account_id] = account
         return account, 201
 
-    # def withdraw(self, name, gold):
-    #     users = LoadBD()
-    #     for user in users:
-    #         if user.name == name:
-    #             if user.gold >= gold:
-    #                 if SaveBD(name, user.gold-gold):
-    #                     print('withdraw ok')
-    #                     return True
-    #             # return ('Saldo'+ str(user.gold))
-    #     return False
-# AccountList
-# shows a list of all accounts, and lets you POST to add new accounts
-
-
 class AccountList(Resource):
     def get(self):
         return ACCOUNTS
-
     def post(self):
         args = parser.parse_args()
         account_id = int(max(ACCOUNTS.keys()).lstrip('account')) + 1
         account_id = 'account%i' % account_id
         ACCOUNTS[account_id] = {'account': args['account']}
         return ACCOUNTS[account_id], 201
-
-
 ##
 # Actually setup the Api resource routing here
 ##
