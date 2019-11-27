@@ -17,18 +17,14 @@ sock.bind(server_address)
 # Listen for incoming connections
 sock.listen(1)
 
-task1 = asyncio.create_task(
-    say_after(1, 'hello'))
-
 while True:
     # Wait for a connection
-    asyncio.run(test())
     print('Waiting for a connection')
     # if msvcrt.kbhit():
     #     print("hit")
     connection, client_address = sock.accept()
-    print("testthisballs")
     try:
+        
         print('Connection from', client_address)
 
         # Receive the data in small chunks and retransmit it
